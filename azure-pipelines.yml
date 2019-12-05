@@ -23,9 +23,9 @@ steps:
 - task: ArchiveFiles@1
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
-    includeRootFolder: false
-    #verbose: true
-    #quiet: true
+    includeRootFolder: true
+    verbose: true
+    quiet: true
     #archiveType: 'zip'
     #archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     #replaceExistingArchive: true
