@@ -6,20 +6,6 @@ pool:
   addToPath: true
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
-
-- script: gem install rails && rails -v
-  displayName: 'gem install rails'
-
-- script: |
-    gem install bundler
-    bundle install --retry=3 --jobs=4
-  displayName: 'bundle install'
-
-- script: bundle exec rake
-  displayName: 'bundle exec rake'
 - task: ArchiveFiles@1
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
