@@ -37,10 +37,11 @@ steps:
 #    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage.xml'
 #    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
 
-- task: ArchiveFiles@2
+- task: ArchiveFiles@1
   displayName: 'Archive application'
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Application'
     includeRootFolder: false
+    archiveType: zip
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
