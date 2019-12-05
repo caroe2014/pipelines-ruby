@@ -24,6 +24,8 @@ steps:
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Application'
     includeRootFolder: true
+    verbose: true
+    quiet: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
