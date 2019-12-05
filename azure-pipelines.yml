@@ -23,7 +23,7 @@ steps:
 - task: ArchiveFiles@1
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
-    includeRootFolder: true
+    includeRootFolder: false
     verbose: true
     quiet: true
     #archiveType: 'zip'
