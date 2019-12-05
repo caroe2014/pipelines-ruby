@@ -42,6 +42,6 @@ steps:
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Application'
     includeRootFolder: false
-    archiveType: zip
+#    archiveType: zip
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
