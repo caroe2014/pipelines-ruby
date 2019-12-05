@@ -22,10 +22,10 @@ steps:
   displayName: 'bundle exec rake'
 - task: ArchiveFiles@1
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/Application'
-    includeRootFolder: true
-    verbose: true
-    quiet: true
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
+    includeRootFolder: false
+    #verbose: true
+    #quiet: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     replaceExistingArchive: true
