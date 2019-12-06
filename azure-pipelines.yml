@@ -1,22 +1,36 @@
+
 # Ruby
-
-
+# Package your Ruby project.
+# Add steps that install rails, analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/ruby
+ 
+trigger:
+- master
+ 
 pool:
-  vmImage: 'Ubuntu 16.04'
-  addToPath: true
-
+  vmImage: 'ubuntu-latest'
+ 
 steps:
-- task: ArchiveFiles@1
+- task: UseRubyVersion@0
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
+    versionSpec: '>= 2.5'
+ 
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+  displayName: 'bundle install'
+ 
+- script: bundle exec rake
+  displayName: 'bundle exec rake'
+ 
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false
-    verbose: true
-    quiet: true
-    #archiveType: 'zip'
-    #archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    #replaceExistingArchive: true
-- task: PublishBuildArtifacts@1
+    
+- task: AzureWebApp@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    azureSubscription: 'edgaro'
+    appType: webAppLinux
+    appName: 'v-edcaroRuby'
+    package: $(System.ArtifactsDirectory)/**/*.zip
