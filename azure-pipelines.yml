@@ -25,12 +25,12 @@ steps:
  
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/'
     includeRootFolder: false
     
 - task: AzureWebApp@1
   inputs:
     azureSubscription: 'edgaro'
     appType: webAppLinux
-    appName: 'v-edcaroRubyv2'
+    appName: 'v-edcaroRuby'
     package: $(System.ArtifactsDirectory)/**/*.zip
