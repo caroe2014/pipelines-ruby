@@ -31,7 +31,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     sourceFolder: # Optional
-   contents: '**' 
+    contents: '**' 
     targetFolder: 
     #cleanTargetFolder: false # Optional
     #overWrite: false # Optional
