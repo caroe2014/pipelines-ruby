@@ -30,9 +30,9 @@ steps:
   #  includeRootFolder: false
 - task: CopyFiles@2
   inputs:
-    sourceFolder: # Optional
+    sourceFolder: app
     contents: '**' 
-    targetFolder: 
+    targetFolder: app
     #cleanTargetFolder: false # Optional
     #overWrite: false # Optional
     #flattenFolders: false # Optional
