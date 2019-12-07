@@ -34,6 +34,6 @@ steps:
     azureSubscription: 'edgaro'
     appType: webAppLinux
     appName: 'v-edcaroRuby'
-    package: $(System.ArtifactsDirectory)/**/*.zip
+    package: $(System.ArtifactsDirectory)**/*.zip
 
   
